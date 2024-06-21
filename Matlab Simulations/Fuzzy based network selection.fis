@@ -1,0 +1,51 @@
+[System]
+Name='iwc2011014'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=4
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='data_rate'
+Range=[0 20]
+NumMFs=4
+MF1='a1':'trapmf',[0 0.0794 5 8]
+MF2='a2':'trimf',[5 10 15]
+MF3='a3':'trapmf',[11 15 20 25]
+MF4='a1':'trapmf',[0 0.0265 5 8]
+
+[Input2]
+Name='interfereance_ratio'
+Range=[-18 20]
+NumMFs=3
+MF1='b1':'trapmf',[-20 -18 -14 -1]
+MF2='b2':'trimf',[-14 0 14]
+MF3='b3':'trapmf',[1 14 20 25]
+
+[Input3]
+Name='RSSI'
+Range=[-90 70]
+NumMFs=3
+MF1='c1':'trapmf',[-95 -90 -85 -82]
+MF2='c2':'trimf',[-85 -80 -75]
+MF3='c3':'trapmf',[-78 -75 -70 -65]
+
+[Output1]
+Name='APCV'
+Range=[1 10]
+NumMFs=3
+MF1='d1':'trapmf',[0 1 2 4]
+MF2='d2':'trimf',[3 5 7]
+MF3='d3':'trapmf',[6 7 10 11]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 1, 1 (1) : 1
+2 2 2, 2 (1) : 1
+3 3 3, 3 (1) : 1
